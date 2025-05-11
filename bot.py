@@ -2,8 +2,7 @@ import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from datetime import datetime, timedelta
-from pytz import timezone
+
 
 
 
@@ -82,7 +81,7 @@ async def send_next_task_day_2(chat_id: int):
 
 
 
-=
+
 
 # Отправляем задание ДЕНЬ 3
 async def send_next_task_day_3(chat_id: int):
@@ -120,7 +119,7 @@ async def send_next_task_day_3(chat_id: int):
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
 
-=
+
 
 # Вечернее сообщение
 async def send_next_task_day_311(chat_id: int):
@@ -143,7 +142,7 @@ async def send_next_task_day_311(chat_id: int):
 
 
 
-=
+
 
 # Отправляем задание ДЕНЬ 4
 async def send_next_task_day_4(chat_id: int):
@@ -179,7 +178,7 @@ async def send_next_task_day_4(chat_id: int):
 
 
 
-=
+
 
 # Отправляем задание ДЕНЬ 5
 async def send_next_task_day_5(chat_id: int):
