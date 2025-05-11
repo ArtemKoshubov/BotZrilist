@@ -15,7 +15,7 @@ dp = Dispatcher(bot)
 scheduler = AsyncIOScheduler()  # Используем AsyncIOScheduler для асинхронных задач
 
 
-
+#хуй
 
 
 # Обработчик команды /start
