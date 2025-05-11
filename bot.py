@@ -5,16 +5,15 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime, timedelta
 from pytz import timezone
 
-kyiv_tz = timezone('Europe/Kyiv')
-now = datetime.now(kyiv_tz)
 
-API_TOKEN = '7947085507:AAEjt7g6gJVmRcNsmOTyjlQIeL7qd7ZzAxQ'  # Замените на свой токен!
+
+
+
+API_TOKEN = '7947085507:AAEhRz-qYN5q_pY_7Z96ZzspvPDnDqHDm0k'  # Замените на свой токен!
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
-scheduler = AsyncIOScheduler()  # Используем AsyncIOScheduler для асинхронных задач
-
-
+scheduler = AsyncIOScheduler()  
 
 
 
@@ -48,16 +47,7 @@ async def start_command(message: Message):
         await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
 
-# Устанавливаем следующее 07:00
 
-
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-scheduler.add_job(send_next_task_day_2, 'date', run_date=run_time, args=[chat_id])
 
 # Отправляем задание ДЕНЬ 2
 async def send_next_task_day_2(chat_id: int):
@@ -92,13 +82,7 @@ async def send_next_task_day_2(chat_id: int):
 
 
 
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-scheduler.add_job(send_next_task_day_3, 'date', run_date=run_time, args=[chat_id])
+=
 
 # Отправляем задание ДЕНЬ 3
 async def send_next_task_day_3(chat_id: int):
@@ -136,14 +120,7 @@ async def send_next_task_day_3(chat_id: int):
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
 
-   
-now = datetime.now()
-run_time = now.replace(hour=19, minute=0, second=0, microsecond=0)
-
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-scheduler.add_job(send_next_task_day_311, 'date', run_date=run_time, args=[chat_id])
+=
 
 # Вечернее сообщение
 async def send_next_task_day_311(chat_id: int):
@@ -166,14 +143,7 @@ async def send_next_task_day_311(chat_id: int):
 
 
 
-
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-scheduler.add_job(send_next_task_day_4, 'date', run_date=run_time, args=[chat_id])
+=
 
 # Отправляем задание ДЕНЬ 4
 async def send_next_task_day_4(chat_id: int):
@@ -209,14 +179,7 @@ async def send_next_task_day_4(chat_id: int):
 
 
 
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-scheduler.add_job(send_next_task_day_5, 'date', run_date=run_time, args=[chat_id])
-
+=
 
 # Отправляем задание ДЕНЬ 5
 async def send_next_task_day_5(chat_id: int):
@@ -249,13 +212,6 @@ async def send_next_task_day_5(chat_id: int):
 
 
 
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-scheduler.add_job(send_next_task_day_6, 'date', run_date=run_time, args=[chat_id])
 
 
 # Отправляем задание ДЕНЬ 6
@@ -291,12 +247,6 @@ async def send_next_task_day_6(chat_id: int):
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
 
-   # Если текущее время уже больше, чем 7:00, назначаем выполнение на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Планируем выполнение задачи в 7:00 
-scheduler.add_job(send_next_task_day_7, 'date', run_date=run_time, args=[chat_id])
 
 # Отправляем задание ДЕНЬ 7
 async def send_next_task_day_7(chat_id: int):
@@ -332,16 +282,7 @@ async def send_next_task_day_7(chat_id: int):
     # Отправляем сообщение "Чекай наступне завдання..."
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-   # Устанавливаем время на 7:00 утра
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, установим на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_8, 'date', run_date=run_time, args=[chat_id])
 
 # Отправляем задание ДЕНЬ 8
 async def send_next_task_day_8(chat_id: int):
@@ -375,16 +316,8 @@ async def send_next_task_day_8(chat_id: int):
     # Отправляем сообщение "Чекай наступне завдання..."
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-   # Устанавливаем время на 7:00 утра
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, установим на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
 
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_9, 'date', run_date=run_time, args=[chat_id])
 
 # Отправляем задание ДЕНЬ 9
 async def send_next_task_day_9(chat_id: int):
@@ -429,16 +362,7 @@ async def send_next_task_day_9(chat_id: int):
     # Отправляем сообщение "Чекай наступне завдання..."
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-     #Получаем текущее время
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, установим на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_10, 'date', run_date=run_time, args=[chat_id])
 
 # Отправляем задание ДЕНЬ 10
 async def send_next_task_day_10(chat_id: int):
@@ -489,16 +413,8 @@ async def send_next_task_day_10(chat_id: int):
     # Отправляем сообщение "Чекай наступне завдання..."
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-     # Получаем текущее время
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
 
-# Планируем задание на 7:00
-scheduler.add_job(send_next_task_day_11, 'date', run_date=run_time, args=[chat_id])
 
 # Отправляем задание ДЕНЬ 11
 async def send_next_task_day_11(chat_id: int):
@@ -560,16 +476,7 @@ async def send_next_task_day_11(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-       # Получаем текущее время
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_12, 'date', run_date=run_time, args=[chat_id])
 
 # Отправляем задание ДЕНЬ 12
 async def send_next_task_day_12(chat_id: int):
@@ -603,16 +510,7 @@ async def send_next_task_day_12(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-        # Получаем текущее время
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_13, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 13
 async def send_next_task_day_13(chat_id: int):
@@ -664,16 +562,7 @@ async def send_next_task_day_13(chat_id: int):
 
        
 
-# Получаем текущее время
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00 следующего дня
-scheduler.add_job(send_next_task_day_14, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 14
 async def send_next_task_day_14(chat_id: int):
@@ -723,16 +612,7 @@ async def send_next_task_day_14(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-     # Получаем текущее время
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00 следующего дня
-scheduler.add_job(send_next_task_day_15, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 15
 async def send_next_task_day_15(chat_id: int):
@@ -785,16 +665,7 @@ async def send_next_task_day_15(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-       # Получаем текущее время
-now = datetime.now()
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_16, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 16
 async def send_next_task_day_16(chat_id: int):
@@ -840,18 +711,7 @@ async def send_next_task_day_16(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-        # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7 утра сегодняшнего дня
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-
-# Если текущее время уже позже 7:00, устанавливаем на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_17, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 17
 async def send_next_task_day_17(chat_id: int):
@@ -911,18 +771,7 @@ async def send_next_task_day_17(chat_id: int):
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
 
-# Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7 утра сегодняшнего дня
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-
-# Если текущее время уже позже 7:00, устанавливаем на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_18, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 18
 async def send_next_task_day_18(chat_id: int):
@@ -971,18 +820,9 @@ async def send_next_task_day_18(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-       # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7 утра сегодняшнего дня
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
 
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_19, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 19
 async def send_next_task_day_19(chat_id: int):
@@ -1035,18 +875,8 @@ async def send_next_task_day_19(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-     # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_20, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 20
 async def send_next_task_day_20(chat_id: int):
@@ -1092,18 +922,9 @@ async def send_next_task_day_20(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-       # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
 
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_21, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 21
 async def send_next_task_day_21(chat_id: int):
@@ -1164,18 +985,9 @@ async def send_next_task_day_21(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-        # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
 
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_22, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 22
 async def send_next_task_day_22(chat_id: int):
@@ -1229,18 +1041,9 @@ async def send_next_task_day_22(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-        # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
 
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_23, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 23
 async def send_next_task_day_23(chat_id: int):
@@ -1294,18 +1097,9 @@ async def send_next_task_day_23(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-       # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
 
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_24, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 24
 async def send_next_task_day_24(chat_id: int):
@@ -1354,18 +1148,9 @@ async def send_next_task_day_24(chat_id: int):
 
 
 
-       # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
 
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_25, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 25
 async def send_next_task_day_25(chat_id: int):
@@ -1424,18 +1209,7 @@ async def send_next_task_day_25(chat_id: int):
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
 
-      # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_26, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 26
 async def send_next_task_day_26(chat_id: int):
@@ -1492,18 +1266,8 @@ async def send_next_task_day_26(chat_id: int):
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
 
-        # Получаем текущее время
-now = datetime.now()
 
-# Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_27, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 27
 async def send_next_task_day_27(chat_id: int):
@@ -1575,18 +1339,6 @@ async def send_next_task_day_27(chat_id: int):
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
 
-       # Получаем текущее время
-now = datetime.now()
-
-# Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
-
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_28, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 28
 async def send_next_task_day_28(chat_id: int):
@@ -1626,15 +1378,8 @@ async def send_next_task_day_28(chat_id: int):
     # Отправляем сообщение ожидания
     await bot.send_message(chat_id, "🕒 Чекай наступне завдання...")
 
-       # Устанавливаем время на 7:00
-run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
 
-# Если текущее время уже позже 7:00, устанавливаем время на 7:00 следующего дня
-if now >= run_time:
-    run_time += timedelta(days=1)
 
-# Запланируем задачу на 7:00
-scheduler.add_job(send_next_task_day_29, 'date', run_date=run_time, args=[chat_id])
 
 # Отправка задания ДЕНЬ 29
 async def send_next_task_day_29(chat_id: int):
@@ -1671,13 +1416,7 @@ async def send_next_task_day_29(chat_id: int):
 
 
 
-    # Устанавливаем следующее 07:00
-    run_time = now.replace(hour=7, minute=0, second=0, microsecond=0)
-    if now >= run_time:
-        run_time += timedelta(days=1)
 
-    # Добавляем задачу в планировщик
-    scheduler.add_job(send_next_task_day_30, 'date', run_date=run_time, args=[chat_id])
 
     # Функция для отправки сообщения
     async def send_next_task_day_30(chat_id: int):
